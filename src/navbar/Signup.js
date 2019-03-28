@@ -139,6 +139,8 @@ import {
       <Modal
         title="Inscription"
         visible={visible}
+        onOk={this.handleOk}
+        onCancel={this.handleCancel}
         footer={[
             <Button key="back" onClick={this.handleCancel}>Return</Button>,
             <Button key="submit" type="primary" loading={loading} onClick={this.handleSubmit}>

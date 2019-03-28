@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from 'antd';
-import Login from './Login.js';
+import WrappedNormalLoginForm from './Login.js';
 import WrappedRegistrationForm from './Signup.js';
 
 class RightMenu extends Component {
@@ -8,7 +8,7 @@ class RightMenu extends Component {
     return (
       <Menu mode="horizontal">
         <Menu.Item key="mail">
-          <Login />
+          <WrappedNormalLoginForm />
         </Menu.Item>
         <Menu.Item key="app">
           <WrappedRegistrationForm />

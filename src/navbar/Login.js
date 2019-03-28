@@ -1,92 +1,92 @@
 import React, { Component } from 'react';
 import {
-    Form, Icon, Input, Modal, Button, Checkbox,
-  } from 'antd';
+  Form, Icon, Input, Button, Checkbox, Modal
+} from 'antd';
 
 class Login extends Component {
   state = {
+    confirmDirty: false,
+    autoCompleteResult: [],
     visible: false,
+    loading: false,
     confirmLoading: false,
-  }
-
+  };
   showModal = () => {
     this.setState({
       visible: true,
     });
   }
-  handleOk = (e) => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-      this.setState({
-        ModalText: 'The modal will be closed after two seconds',
-        confirmLoading: true,
-      });
-      setTimeout(() => {
-        this.setState({
-          visible: false,
-          confirmLoading: false,
-        });
-      }, 2000);
+  handleSubmit = (e) => {
+        this.setState({ loading: true });
+    setTimeout(() => {
+      this.setState({ loading: false, visible: false });
+    }, 3000);
+      e.preventDefault();
+      this.props.form.validateFieldsAndScroll((err, values) => {
+        if (!err) {
+          console.log('Received values of form: ', values);
+        }
       });
     }
-
-
-  handleCancel = () => {
-    console.log('Clicked cancel button');
-    this.setState({
-      visible: false,
-    });
-  }
+    handleCancel = () => {
+      this.setState({ visible: false });
+    }
 
   render() {
-    const { visible, confirmLoading } = this.state;
     const { getFieldDecorator } = this.props.form;
+    const { visible, loading  } = this.state;
+
     return (
       <div>
         <Button  onClick={this.showModal}>
-          Login
-        </Button>
-        <Modal
-          title="Login"
-          visible={visible}
-          onOk={this.handleOk}
-          confirmLoading={confirmLoading}
-          onCancel={this.handleCancel}
-        >
-        <Form onSubmit={this.handleSubmit} className="login-form">
-          <Form.Item> {/*email input */}
-            {getFieldDecorator('Email', {
-              rules: [{ required: true, message: 'Please input your email!' }],
-            })(
-              <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} type="email" placeholder="Email" />
-            )}
-          </Form.Item>
-          <Form.Item> {/*mdp input */}
-            {getFieldDecorator('Mot de passe', {
-              rules: [{ required: true, message: 'Please input your Password!' }],
-            })(
-              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Mot de passe" />
-            )}
-          </Form.Item>
-          <Form.Item> {/* remember input*/}
-            {getFieldDecorator('remember', {
-              valuePropName: 'checked',
-              initialValue: true,
-            })(
-              <Checkbox>Se souvenir</Checkbox>
-            )}
-            <br></br>{/* choose to signup or recover account */}
-            <a className="login-form-forgot" href="/">Mot de passe oublié</a>
-            &nbsp; Ou &nbsp; <a href="/">s'inscrire</a>
-          </Form.Item>
-        </Form>
-        </Modal>
+        Login
+      </Button>
+      <Modal
+        title="Inscription"
+        visible={visible}
+        onOk={this.handleOk}
+        onCancel={this.handleCancel}
+        footer={[
+            <Button key="back" onClick={this.handleCancel}>Return</Button>,
+            <Button key="submit" type="primary" loading={loading} onClick={this.handleSubmit}>
+              Submit
+            </Button>,
+          ]}
+      >
+      <Form onSubmit={this.handleSubmit} className="login-form">
+        <Form.Item>
+          {getFieldDecorator('userName', {
+            rules: [{ required: true, message: 'Please input your username!' }],
+          })(
+            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator('password', {
+            rules: [{ required: true, message: 'Please input your Password!' }],
+          })(
+            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator('remember', {
+            valuePropName: 'checked',
+            initialValue: true,
+          })(
+            <Checkbox>Remember me</Checkbox>
+          )}
+          <a className="login-form-forgot" href="/">Forgot password</a>
+          {/*<Button type="primary" htmlType="submit" className="login-form-button">
+            Log in
+          </Button>*/}
+          Or <a href="/">register now!</a>
+        </Form.Item>
+      </Form>
+      </Modal>
       </div>
     );
   }
 }
-const Loginn = Form.create({ name: 'normal_login' })(Login);
-export default Loginn;
+
+const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(Login);
+export default WrappedNormalLoginForm;
