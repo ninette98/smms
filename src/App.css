@@ -38,6 +38,7 @@
 }
 .menuCon .rightMenu{
   float: right;
+  padding: 10px;
 }
 .barsMenu{
   float: right;

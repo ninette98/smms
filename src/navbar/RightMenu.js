@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Menu } from 'antd';
 import Login from './Login.js';
+import WrappedRegistrationForm from './Signup.js';
 
 class RightMenu extends Component {
   render() {
@@ -10,7 +11,7 @@ class RightMenu extends Component {
           <Login />
         </Menu.Item>
         <Menu.Item key="app">
-          <a href="/">Inscription</a>
+          <WrappedRegistrationForm />
         </Menu.Item>
       </Menu>
     );
