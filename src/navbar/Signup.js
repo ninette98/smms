@@ -133,41 +133,39 @@ import {
   
       return (
         <div>
-        <Button  onClick={this.showModal}>
-        Login
-      </Button>
-      <Modal
-        title="Inscription"
-        visible={visible}
-        onOk={this.handleOk}
-        onCancel={this.handleCancel}
-        footer={[
-            <Button key="back" onClick={this.handleCancel}>Return</Button>,
-            <Button key="submit" type="primary" loading={loading} onClick={this.handleSubmit}>
-              Submit
-            </Button>,
-          ]}
-      >
+        <Button  onClick={this.showModal}>S'inscrire</Button>
+        <Modal
+          title="Inscription"
+          visible={visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+          footer={[
+              <Button key="back" onClick={this.handleCancel}>Retour</Button>,
+              <Button key="submit" type="primary" loading={loading} onClick={this.handleSubmit}>
+                Confirmer
+              </Button>,
+            ]}
+        >
         <Form {...formItemLayout} onSubmit={this.handleSubmit}>
           <Form.Item
             label="E-mail"
           >
             {getFieldDecorator('email', {
               rules: [{
-                type: 'email', message: 'The input is not valid E-mail!',
+                type: 'email', message: 'Inserer un email valide!',
               }, {
-                required: true, message: 'Please input your E-mail!',
+                required: true, message: 'Inserer votre email!',
               }],
             })(
               <Input />
             )}
           </Form.Item>
           <Form.Item
-            label="Password"
+            label="Mot de passe"
           >
             {getFieldDecorator('password', {
               rules: [{
-                required: true, message: 'Please input your password!',
+                required: true, message: 'Inserer un mot de passe!',
               }, {
                 validator: this.validateToNextPassword,
               }],
@@ -176,11 +174,11 @@ import {
             )}
           </Form.Item>
           <Form.Item
-            label="Confirm Password"
+            label="Confirmer mot de passe"
           >
             {getFieldDecorator('confirm', {
               rules: [{
-                required: true, message: 'Please confirm your password!',
+                required: true, message: 'Confirmer le mot de passe!',
               }, {
                 validator: this.compareToFirstPassword,
               }],
@@ -199,13 +197,13 @@ import {
             )}
           >
             {getFieldDecorator('nickname', {
-              rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
+              rules: [{ required: true, message: 'Inserer votre surenom!', whitespace: true }],
             })(
               <Input />
             )}
           </Form.Item>
           <Form.Item
-            label="Habitual Residence"
+            label="Adresse"
           >
             {getFieldDecorator('residence', {
               initialValue: ['zhejiang', 'hangzhou', 'xihu'],
@@ -215,19 +213,19 @@ import {
             )}
           </Form.Item>
           <Form.Item
-            label="Phone Number"
+            label="Telephone"
           >
             {getFieldDecorator('phone', {
-              rules: [{ required: true, message: 'Please input your phone number!' }],
+              rules: [{ required: true, message: 'Inserer votre numéro de téléphone!' }],
             })(
               <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
             )}
           </Form.Item>
           <Form.Item
-            label="Website"
+            label="Site web"
           >
             {getFieldDecorator('website', {
-              rules: [{ required: true, message: 'Please input website!' }],
+              rules: [{ required: true, message: 'Inserer votre site web!' }],
             })(
               <AutoComplete
                 dataSource={websiteOptions}
@@ -240,7 +238,7 @@ import {
           </Form.Item>
           <Form.Item
             label="Captcha"
-            extra="We must make sure that your are a human."
+            extra="Vous n'etes pas un robot, pas vraie? "
           >
             <Row gutter={8}>
               <Col span={12}>
@@ -259,7 +257,7 @@ import {
             {getFieldDecorator('agreement', {
               valuePropName: 'checked',
             })(
-              <Checkbox>I have read the <a href="/">agreement</a></Checkbox>
+              <Checkbox>J'ai lu <a href="/">l'agreement</a></Checkbox>
             )}
           </Form.Item>
           {/*<Form.Item {...tailFormItemLayout}>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './Services.css'
 import { Card, Col, Row } from 'antd';
+
 class Services extends Component {
     render() {
         return(
-            <div className="services-section" >
+            <div id="services" className="services-section" >
                 <h1>Services</h1>
                 <Row  gutter={16}>
                     <Col span={8}>

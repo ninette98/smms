@@ -6,15 +6,15 @@ class LeftMenu extends Component {
     return (
    <Menu mode="horizontal">
        <Menu.Item key="mail">
-          <a href="/">Accueil</a>
+          <a href="#head">Accueil</a>
         </Menu.Item>
-        <SubMenu title={<span>Services</span>}>
+        <SubMenu  title={<span>Services</span>}>
           <Menu.Item title="Service 1" key="setting:1">Service 1</Menu.Item>
           <Menu.Item title="Service 2" key="setting:2">Service 2</Menu.Item>
           <Menu.Item title="Service 3" key="setting:3">Service 3</Menu.Item>
         </SubMenu>
         <Menu.Item key="alipay">
-          <a href="/">Contact</a>
+          <a href="#services">Contact</a>
         </Menu.Item>
       </Menu>
     );

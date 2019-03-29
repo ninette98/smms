@@ -3,7 +3,7 @@
 .menuBar{
   padding: 0 20px;
   border-bottom: solid 1px #e8e8e8;
-  overflow: auto;
+  overflow: hidden;
   box-shadow: 0 0 30px #f3f1f1;
 }
 .logo{
@@ -38,7 +38,7 @@
 }
 .menuCon .rightMenu{
   float: right;
-  padding: 10px;
+  padding:10px;
 }
 .barsMenu{
   float: right;
@@ -82,23 +82,6 @@
   border-bottom-color: transparent;
 }
 
-@media(max-width: 767px){
-  .barsMenu{
-    display: inline-block;
-  }
-  .leftMenu,.rightMenu{
-    display: none;
-  }
-  .logo a{
-    margin-left: -20px;
-  }
-  .menuCon .ant-menu-item, .menuCon .ant-menu-submenu-title{
-    padding: 1px 20px;
-  }
-  .logo a{
-    padding: 10px 20px;
-  }
-}
 .head-section{
   font-size: 25px;
   padding: 40px;  
@@ -119,3 +102,25 @@
 .services-section h1{
   text-align: center;
 }
+
+@media(max-width: 767px){
+  .head-section p{
+    background: rgba(246, 246, 250, 0.5); 
+  }
+  .barsMenu{
+    display: inline-block;
+  }
+  .leftMenu,.rightMenu{
+    display: none;
+  }
+  .logo a{
+    margin-left: -20px;
+  }
+  .menuCon .ant-menu-item, .menuCon .ant-menu-submenu-title{
+    padding: 1px 20px;
+  }
+  .logo a{
+    padding: 10px 20px;
+  }
+}
+
