@@ -99,3 +99,23 @@
     padding: 10px 20px;
   }
 }
+.head-section{
+  font-size: 25px;
+  padding: 40px;  
+  background-image: url(/assets/frontpic.png);
+  height: 500px; 
+  background-position: right; 
+  background-repeat: no-repeat; 
+}
+.head-section p{
+  text-align: center;
+  width:600px; 
+  padding-top: 60px;
+  padding-left: 40px;
+}
+.services-section{
+  padding: 50px;
+} 
+.services-section h1{
+  text-align: center;
+}

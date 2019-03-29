@@ -42,14 +42,14 @@ class Login extends Component {
         Login
       </Button>
       <Modal
-        title="Inscription"
+        title="Se connecter"
         visible={visible}
         onOk={this.handleOk}
         onCancel={this.handleCancel}
         footer={[
-            <Button key="back" onClick={this.handleCancel}>Return</Button>,
+            <Button key="back" onClick={this.handleCancel}>Retour</Button>,
             <Button key="submit" type="primary" loading={loading} onClick={this.handleSubmit}>
-              Submit
+              Confirmer
             </Button>,
           ]}
       >
@@ -73,13 +73,13 @@ class Login extends Component {
             valuePropName: 'checked',
             initialValue: true,
           })(
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>Se souvenir</Checkbox>
           )}
-          <a className="login-form-forgot" href="/">Forgot password</a>
+          <a className="login-form-forgot" href="/">Mot de passe oublié</a> &nbsp;
           {/*<Button type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>*/}
-          Or <a href="/">register now!</a>
+          Ou &nbsp;<a href="/">S'inscrire!</a>
         </Form.Item>
       </Form>
       </Modal>
