@@ -1,0 +1,12 @@
+.contactContainer{
+font-size: 25px;
+padding: 40px;
+background-image: url(/assets/contact.jpg);
+background-size: 100%; 
+background-repeat: no-repeat;
+text-align: center;
+}
+p{font-size:30px;
+color: black;
+}
+h2{padding-top:40%}
